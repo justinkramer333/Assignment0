@@ -3,6 +3,10 @@
 <head>
   <title>HTTP Quiz</title>
   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
 <!-- Top Header -->
 <div class="menu">
   <a href="index.html">Home</a>
@@ -15,97 +19,58 @@
 </div>
 
 <hr>
-  <style>
-    .quiz-container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
 
-    .question {
-      margin-bottom: 25px;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+<h1>HTTP Quiz</h1>
 
-    button {
-      padding: 10px 15px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
+<p>Test your understanding of HTTP concepts.</p>
 
-    .correct {
-      color: green;
-      font-weight: bold;
-    }
-
-    .incorrect {
-      color: red;
-      font-weight: bold;
-    }
-
-    #results {
-      margin-top: 30px;
-      padding: 20px;
-      border: 1px solid #aaa;
-      display: none;
-    }
-  </style>
-</head>
-
-<body>
-
-
-<h1 style="text-align:center;">HTTP Quiz</h1>
-
-<div class="quiz-container">
+<hr>
 
 <form id="quizForm">
 
-<!-- Q1 Fill in -->
-<div class="question">
-  <h3>1. Fill in the blank</h3>
-  <p>HTTP/3 is built on the ______ protocol.</p>
-  <input type="text" id="q1" required>
-</div>
+<!-- Q1 -->
+<h3>1. Fill in the blank</h3>
+<p>HTTP/3 is built on the ______ protocol.</p>
+<input type="text" id="q1" required>
+
+<hr>
 
 <!-- Q2 -->
-<div class="question">
-  <h3>2. Multiple Choice</h3>
-  <p>Which version only supported GET requests?</p>
-  <label><input type="radio" name="q2" value="correct" required> HTTP/0.9</label><br>
-  <label><input type="radio" name="q2" value="wrong"> HTTP/1.0</label><br>
-  <label><input type="radio" name="q2" value="wrong"> HTTP/1.1</label><br>
-</div>
+<h3>2. Multiple Choice</h3>
+<p>Which version only supported GET requests?</p>
+<label><input type="radio" name="q2" value="correct" required> HTTP/0.9</label><br>
+<label><input type="radio" name="q2" value="wrong"> HTTP/1.0</label><br>
+<label><input type="radio" name="q2" value="wrong"> HTTP/1.1</label><br>
+
+<hr>
 
 <!-- Q3 -->
-<div class="question">
-  <h3>3. Multiple Choice</h3>
-  <p>Which version introduced persistent connections?</p>
-  <label><input type="radio" name="q3" value="wrong" required> HTTP/0.9</label><br>
-  <label><input type="radio" name="q3" value="correct"> HTTP/1.1</label><br>
-  <label><input type="radio" name="q3" value="wrong"> HTTP/2</label><br>
-</div>
+<h3>3. Multiple Choice</h3>
+<p>Which version introduced persistent connections?</p>
+<label><input type="radio" name="q3" value="wrong" required> HTTP/0.9</label><br>
+<label><input type="radio" name="q3" value="correct"> HTTP/1.1</label><br>
+<label><input type="radio" name="q3" value="wrong"> HTTP/2</label><br>
+
+<hr>
 
 <!-- Q4 -->
-<div class="question">
-  <h3>4. Multiple Choice</h3>
-  <p>Which feature was added in HTTP/2?</p>
-  <label><input type="radio" name="q4" value="correct" required> Multiplexing</label><br>
-  <label><input type="radio" name="q4" value="wrong"> Only text pages</label><br>
-  <label><input type="radio" name="q4" value="wrong"> No headers</label><br>
-</div>
+<h3>4. Multiple Choice</h3>
+<p>Which feature was added in HTTP/2?</p>
+<label><input type="radio" name="q4" value="correct" required> Multiplexing</label><br>
+<label><input type="radio" name="q4" value="wrong"> Only text pages</label><br>
+<label><input type="radio" name="q4" value="wrong"> No headers</label><br>
 
-<!-- Q5 Multi -->
-<div class="question">
-  <h3>5. Multi-Select</h3>
-  <p>Select all true statements:</p>
-  <label><input type="checkbox" name="q5" value="a"> HTTPS encrypts data</label><br>
-  <label><input type="checkbox" name="q5" value="b"> HTTP/1.0 introduced headers</label><br>
-  <label><input type="checkbox" name="q5" value="c"> HTTP/0.9 supported multimedia</label><br>
-  <label><input type="checkbox" name="q5" value="d"> HTTP is stateless</label><br>
-</div>
+<hr>
+
+<!-- Q5 -->
+<h3>5. Multi-Select</h3>
+<p>Select all true statements:</p>
+<label><input type="checkbox" name="q5" value="a"> HTTPS encrypts data</label><br>
+<label><input type="checkbox" name="q5" value="b"> HTTP/1.0 introduced headers</label><br>
+<label><input type="checkbox" name="q5" value="c"> HTTP/0.9 supported multimedia</label><br>
+<label><input type="checkbox" name="q5" value="d"> HTTP is stateless</label><br>
+
+<hr>
 
 <button type="button" onclick="gradeQuiz()">Submit</button>
 <button type="reset" onclick="resetQuiz()">Reset</button>
@@ -114,47 +79,53 @@
 
 <div id="results"></div>
 
-</div>
+<hr>
+
+<!-- Footer (MATCHED EXACTLY) -->
+<p>
+This is a class project for IT 3203. 
+<a href="https://ksuweb.github.io/IT3203/">Course Website</a>
+</p>
 
 <script>
 function gradeQuiz() {
   let score = 0;
-  let resultsHTML = "";
+  let results = "";
 
   // Q1
   let q1 = document.getElementById("q1").value.toLowerCase();
   if (q1 === "quic") {
     score++;
-    resultsHTML += "<p class='correct'>Q1 Correct</p>";
+    results += "<p style='color:green;'>Q1 Correct</p>";
   } else {
-    resultsHTML += "<p class='incorrect'>Q1 Incorrect (Answer: QUIC)</p>";
+    results += "<p style='color:red;'>Q1 Incorrect (Answer: QUIC)</p>";
   }
 
   // Q2
   let q2 = document.querySelector('input[name="q2"]:checked');
   if (q2 && q2.value === "correct") {
     score++;
-    resultsHTML += "<p class='correct'>Q2 Correct</p>";
+    results += "<p style='color:green;'>Q2 Correct</p>";
   } else {
-    resultsHTML += "<p class='incorrect'>Q2 Incorrect (Answer: HTTP/0.9)</p>";
+    results += "<p style='color:red;'>Q2 Incorrect</p>";
   }
 
   // Q3
   let q3 = document.querySelector('input[name="q3"]:checked');
   if (q3 && q3.value === "correct") {
     score++;
-    resultsHTML += "<p class='correct'>Q3 Correct</p>";
+    results += "<p style='color:green;'>Q3 Correct</p>";
   } else {
-    resultsHTML += "<p class='incorrect'>Q3 Incorrect (Answer: HTTP/1.1)</p>";
+    results += "<p style='color:red;'>Q3 Incorrect</p>";
   }
 
   // Q4
   let q4 = document.querySelector('input[name="q4"]:checked');
   if (q4 && q4.value === "correct") {
     score++;
-    resultsHTML += "<p class='correct'>Q4 Correct</p>";
+    results += "<p style='color:green;'>Q4 Correct</p>";
   } else {
-    resultsHTML += "<p class='incorrect'>Q4 Incorrect (Answer: Multiplexing)</p>";
+    results += "<p style='color:red;'>Q4 Incorrect</p>";
   }
 
   // Q5
@@ -164,9 +135,9 @@ function gradeQuiz() {
 
   if (answers.length === correct.length && correct.every(v => answers.includes(v))) {
     score++;
-    resultsHTML += "<p class='correct'>Q5 Correct</p>";
+    results += "<p style='color:green;'>Q5 Correct</p>";
   } else {
-    resultsHTML += "<p class='incorrect'>Q5 Incorrect</p>";
+    results += "<p style='color:red;'>Q5 Incorrect</p>";
   }
 
   let percent = (score / 5) * 100;
@@ -175,13 +146,11 @@ function gradeQuiz() {
   document.getElementById("results").innerHTML =
     "<h2>Score: " + score + "/5 (" + percent + "%)</h2>" +
     "<h3>" + pass + "</h3>" +
-    resultsHTML;
-
-  document.getElementById("results").style.display = "block";
+    results;
 }
 
 function resetQuiz() {
-  document.getElementById("results").style.display = "none";
+  document.getElementById("results").innerHTML = "";
 }
 </script>
 
