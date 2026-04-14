@@ -1,106 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTTP Quiz | Assignment 0</title>
+  <title>HTTP Quiz</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Quiz page specific styling */
     .quiz-container {
       max-width: 900px;
       margin: 40px auto;
-      padding: 30px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-    }
-
-    .quiz-container h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .quiz-container p.quiz-intro {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .question-block {
-      margin-bottom: 28px;
       padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      background-color: #f9f9f9;
     }
 
-    .question-block h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-
-    .question-block label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
-    .question-block input[type="text"] {
-      width: 100%;
-      max-width: 400px;
-      padding: 10px;
-      margin-top: 8px;
-      border: 1px solid #bbb;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .quiz-buttons {
-      margin-top: 20px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .quiz-buttons button {
-      padding: 12px 22px;
-      border: none;
+    .question {
+      margin-bottom: 25px;
+      padding: 15px;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin-top: 10px;
       cursor: pointer;
-    }
-
-    .submit-btn {
-      background-color: #1f6feb;
-      color: white;
-    }
-
-    .reset-btn {
-      background-color: #6c757d;
-      color: white;
-    }
-
-    .results-box {
-      margin-top: 30px;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: #f3f7fb;
-      border: 1px solid #cfd8e3;
-      display: none;
-    }
-
-    .results-box h2 {
-      margin-top: 0;
-    }
-
-    .pass {
-      color: green;
-      font-weight: bold;
-    }
-
-    .fail {
-      color: red;
-      font-weight: bold;
     }
 
     .correct {
@@ -113,223 +34,157 @@
       font-weight: bold;
     }
 
-    .answer-line {
-      margin: 6px 0 14px 0;
-    }
-
-    .result-item {
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #ddd;
+    #results {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #aaa;
+      display: none;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Main Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="concepts.html">Key Concepts</a></li>
-        <li><a href="early-http.html">Early HTTP</a></li>
-        <li><a href="modern-http.html">Modern HTTP</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="references.html">References</a></li>
-        <li><a href="quiz.html">Quiz</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- Top Header -->
+<div class="menu">
+  <a href="index.html">Home</a>
+  <a href="early-http.html">Early HTTP</a>
+  <a href="modern-http.html">Modern HTTP</a>
+  <a href="concepts.html">Concepts</a>
+  <a href="references.html">References</a>
+  <a href="about.html">About</a>
+  <a href="quiz.html">Quiz</a>
+</div>
 
-  <main class="quiz-container">
-    <h1>HTTP Self-Assessment Quiz</h1>
-    <p class="quiz-intro">
-      Test your understanding of the evolution of HTTP.
-    </p>
+<hr>
 
-    <!-- No form action used, per instructor note -->
-    <form id="quizForm">
+<h1 style="text-align:center;">HTTP Quiz</h1>
 
-      <!-- Question 1: Fill in the blank -->
-      <div class="question-block">
-        <h3>1. Fill in the blank</h3>
-        <p>HTTP/3 is built on top of the transport protocol called ______.</p>
-        <input type="text" id="q1" name="q1" required>
-      </div>
+<div class="quiz-container">
 
-      <!-- Question 2: Multiple choice -->
-      <div class="question-block">
-        <h3>2. Multiple Choice</h3>
-        <p>Which early version of HTTP only supported the GET request?</p>
-        <label><input type="radio" name="q2" value="HTTP/0.9" required> HTTP/0.9</label>
-        <label><input type="radio" name="q2" value="HTTP/1.0"> HTTP/1.0</label>
-        <label><input type="radio" name="q2" value="HTTP/1.1"> HTTP/1.1</label>
-        <label><input type="radio" name="q2" value="HTTP/2"> HTTP/2</label>
-      </div>
+<form id="quizForm">
 
-      <!-- Question 3: Multiple choice -->
-      <div class="question-block">
-        <h3>3. Multiple Choice</h3>
-        <p>Which version of HTTP introduced persistent connections?</p>
-        <label><input type="radio" name="q3" value="HTTP/0.9" required> HTTP/0.9</label>
-        <label><input type="radio" name="q3" value="HTTP/1.0"> HTTP/1.0</label>
-        <label><input type="radio" name="q3" value="HTTP/1.1"> HTTP/1.1</label>
-        <label><input type="radio" name="q3" value="HTTPS"> HTTPS</label>
-      </div>
+<!-- Q1 Fill in -->
+<div class="question">
+  <h3>1. Fill in the blank</h3>
+  <p>HTTP/3 is built on the ______ protocol.</p>
+  <input type="text" id="q1" required>
+</div>
 
-      <!-- Question 4: Multiple choice -->
-      <div class="question-block">
-        <h3>4. Multiple Choice</h3>
-        <p>What was one major improvement introduced with HTTP/2?</p>
-        <label><input type="radio" name="q4" value="Only text pages" required> Only text pages</label>
-        <label><input type="radio" name="q4" value="Multiplexing"> Multiplexing</label>
-        <label><input type="radio" name="q4" value="Removing headers"> Removing headers</label>
-        <label><input type="radio" name="q4" value="No status codes"> No status codes</label>
-      </div>
+<!-- Q2 -->
+<div class="question">
+  <h3>2. Multiple Choice</h3>
+  <p>Which version only supported GET requests?</p>
+  <label><input type="radio" name="q2" value="correct" required> HTTP/0.9</label><br>
+  <label><input type="radio" name="q2" value="wrong"> HTTP/1.0</label><br>
+  <label><input type="radio" name="q2" value="wrong"> HTTP/1.1</label><br>
+</div>
 
-      <!-- Question 5: Multi-selection -->
-      <div class="question-block">
-        <h3>5. Multi-Select</h3>
-        <p>Select all statements that are true about HTTP and HTTPS:</p>
-        <label><input type="checkbox" name="q5" value="a"> HTTPS helps secure data with encryption</label>
-        <label><input type="checkbox" name="q5" value="b"> HTTP/1.0 introduced request and response headers</label>
-        <label><input type="checkbox" name="q5" value="c"> HTTP/0.9 supported advanced multimedia features</label>
-        <label><input type="checkbox" name="q5" value="d"> HTTP is stateless</label>
-      </div>
+<!-- Q3 -->
+<div class="question">
+  <h3>3. Multiple Choice</h3>
+  <p>Which version introduced persistent connections?</p>
+  <label><input type="radio" name="q3" value="wrong" required> HTTP/0.9</label><br>
+  <label><input type="radio" name="q3" value="correct"> HTTP/1.1</label><br>
+  <label><input type="radio" name="q3" value="wrong"> HTTP/2</label><br>
+</div>
 
-      <div class="quiz-buttons">
-        <button type="button" class="submit-btn" onclick="gradeQuiz()">Submit Quiz</button>
-        <button type="reset" class="reset-btn" onclick="resetQuiz()">Retake / Reset</button>
-      </div>
-    </form>
+<!-- Q4 -->
+<div class="question">
+  <h3>4. Multiple Choice</h3>
+  <p>Which feature was added in HTTP/2?</p>
+  <label><input type="radio" name="q4" value="correct" required> Multiplexing</label><br>
+  <label><input type="radio" name="q4" value="wrong"> Only text pages</label><br>
+  <label><input type="radio" name="q4" value="wrong"> No headers</label><br>
+</div>
 
-    <div id="results" class="results-box"></div>
-  </main>
+<!-- Q5 Multi -->
+<div class="question">
+  <h3>5. Multi-Select</h3>
+  <p>Select all true statements:</p>
+  <label><input type="checkbox" name="q5" value="a"> HTTPS encrypts data</label><br>
+  <label><input type="checkbox" name="q5" value="b"> HTTP/1.0 introduced headers</label><br>
+  <label><input type="checkbox" name="q5" value="c"> HTTP/0.9 supported multimedia</label><br>
+  <label><input type="checkbox" name="q5" value="d"> HTTP is stateless</label><br>
+</div>
 
-  <script>
-    function gradeQuiz() {
-      const resultsBox = document.getElementById("results");
-      const form = document.getElementById("quizForm");
+<button type="button" onclick="gradeQuiz()">Submit</button>
+<button type="reset" onclick="resetQuiz()">Reset</button>
 
-      // Make sure required form fields are completed
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+</form>
 
-      let score = 0;
-      const totalQuestions = 5;
-      let resultsHTML = "<h2>Quiz Results</h2>";
+<div id="results"></div>
 
-      // Question 1
-      const q1Answer = document.getElementById("q1").value.trim().toLowerCase();
-      const q1Correct = "quic";
-      const q1IsCorrect = q1Answer === q1Correct;
-      if (q1IsCorrect) score++;
+</div>
 
-      resultsHTML += `
-        <div class="result-item">
-          <p><strong>Question 1:</strong> ${
-            q1IsCorrect
-              ? '<span class="correct">Correct</span>'
-              : '<span class="incorrect">Incorrect</span>'
-          }</p>
-          <p class="answer-line">Correct Answer: QUIC</p>
-        </div>
-      `;
+<script>
+function gradeQuiz() {
+  let score = 0;
+  let resultsHTML = "";
 
-      // Question 2
-      const q2Selected = document.querySelector('input[name="q2"]:checked').value;
-      const q2Correct = "HTTP/0.9";
-      const q2IsCorrect = q2Selected === q2Correct;
-      if (q2IsCorrect) score++;
+  // Q1
+  let q1 = document.getElementById("q1").value.toLowerCase();
+  if (q1 === "quic") {
+    score++;
+    resultsHTML += "<p class='correct'>Q1 Correct</p>";
+  } else {
+    resultsHTML += "<p class='incorrect'>Q1 Incorrect (Answer: QUIC)</p>";
+  }
 
-      resultsHTML += `
-        <div class="result-item">
-          <p><strong>Question 2:</strong> ${
-            q2IsCorrect
-              ? '<span class="correct">Correct</span>'
-              : '<span class="incorrect">Incorrect</span>'
-          }</p>
-          <p class="answer-line">Correct Answer: HTTP/0.9</p>
-        </div>
-      `;
+  // Q2
+  let q2 = document.querySelector('input[name="q2"]:checked');
+  if (q2 && q2.value === "correct") {
+    score++;
+    resultsHTML += "<p class='correct'>Q2 Correct</p>";
+  } else {
+    resultsHTML += "<p class='incorrect'>Q2 Incorrect (Answer: HTTP/0.9)</p>";
+  }
 
-      // Question 3
-      const q3Selected = document.querySelector('input[name="q3"]:checked').value;
-      const q3Correct = "HTTP/1.1";
-      const q3IsCorrect = q3Selected === q3Correct;
-      if (q3IsCorrect) score++;
+  // Q3
+  let q3 = document.querySelector('input[name="q3"]:checked');
+  if (q3 && q3.value === "correct") {
+    score++;
+    resultsHTML += "<p class='correct'>Q3 Correct</p>";
+  } else {
+    resultsHTML += "<p class='incorrect'>Q3 Incorrect (Answer: HTTP/1.1)</p>";
+  }
 
-      resultsHTML += `
-        <div class="result-item">
-          <p><strong>Question 3:</strong> ${
-            q3IsCorrect
-              ? '<span class="correct">Correct</span>'
-              : '<span class="incorrect">Incorrect</span>'
-          }</p>
-          <p class="answer-line">Correct Answer: HTTP/1.1</p>
-        </div>
-      `;
+  // Q4
+  let q4 = document.querySelector('input[name="q4"]:checked');
+  if (q4 && q4.value === "correct") {
+    score++;
+    resultsHTML += "<p class='correct'>Q4 Correct</p>";
+  } else {
+    resultsHTML += "<p class='incorrect'>Q4 Incorrect (Answer: Multiplexing)</p>";
+  }
 
-      // Question 4
-      const q4Selected = document.querySelector('input[name="q4"]:checked').value;
-      const q4Correct = "Multiplexing";
-      const q4IsCorrect = q4Selected === q4Correct;
-      if (q4IsCorrect) score++;
+  // Q5
+  let q5 = document.querySelectorAll('input[name="q5"]:checked');
+  let answers = Array.from(q5).map(x => x.value);
+  let correct = ["a", "b", "d"];
 
-      resultsHTML += `
-        <div class="result-item">
-          <p><strong>Question 4:</strong> ${
-            q4IsCorrect
-              ? '<span class="correct">Correct</span>'
-              : '<span class="incorrect">Incorrect</span>'
-          }</p>
-          <p class="answer-line">Correct Answer: Multiplexing</p>
-        </div>
-      `;
+  if (answers.length === correct.length && correct.every(v => answers.includes(v))) {
+    score++;
+    resultsHTML += "<p class='correct'>Q5 Correct</p>";
+  } else {
+    resultsHTML += "<p class='incorrect'>Q5 Incorrect</p>";
+  }
 
-      // Question 5
-      const q5Checked = document.querySelectorAll('input[name="q5"]:checked');
-      const q5Values = Array.from(q5Checked).map(item => item.value).sort();
-      const q5Correct = ["a", "b", "d"];
-      const q5IsCorrect =
-        q5Values.length === q5Correct.length &&
-        q5Values.every((value, index) => value === q5Correct[index]);
+  let percent = (score / 5) * 100;
+  let pass = percent >= 70 ? "PASS" : "FAIL";
 
-      if (q5IsCorrect) score++;
+  document.getElementById("results").innerHTML =
+    "<h2>Score: " + score + "/5 (" + percent + "%)</h2>" +
+    "<h3>" + pass + "</h3>" +
+    resultsHTML;
 
-      resultsHTML += `
-        <div class="result-item">
-          <p><strong>Question 5:</strong> ${
-            q5IsCorrect
-              ? '<span class="correct">Correct</span>'
-              : '<span class="incorrect">Incorrect</span>'
-          }</p>
-          <p class="answer-line">Correct Answers: HTTPS helps secure data with encryption, HTTP/1.0 introduced headers, and HTTP is stateless.</p>
-        </div>
-      `;
+  document.getElementById("results").style.display = "block";
+}
 
-      const percent = Math.round((score / totalQuestions) * 100);
-      const passed = percent >= 70;
+function resetQuiz() {
+  document.getElementById("results").style.display = "none";
+}
+</script>
 
-      resultsHTML = `
-        <h2>Quiz Results</h2>
-        <p><strong>Total Score:</strong> <span class="${passed ? 'correct' : 'incorrect'}">${score} / ${totalQuestions} (${percent}%)</span></p>
-        <p><strong>Result:</strong> <span class="${passed ? 'pass' : 'fail'}">${passed ? 'Pass' : 'Fail'}</span></p>
-      ` + resultsHTML.replace("<h2>Quiz Results</h2>", "");
-
-      resultsBox.innerHTML = resultsHTML;
-      resultsBox.style.display = "block";
-      resultsBox.scrollIntoView({ behavior: "smooth" });
-    }
-
-    function resetQuiz() {
-      document.getElementById("quizForm").reset();
-      const resultsBox = document.getElementById("results");
-      resultsBox.innerHTML = "";
-      resultsBox.style.display = "none";
-    }
-  </script>
 </body>
 </html>
