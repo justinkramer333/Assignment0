@@ -22,3 +22,22 @@ a:hover {
 .highlight {
     color: green;
 }
+/* Center the quiz content */
+form {
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+/* Style each question box */
+.question {
+  border: 2px solid #444;   /* darker border */
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+/* Center main title */
+h1 {
+  text-align: center;
+}
