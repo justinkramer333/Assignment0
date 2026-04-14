@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <!-- Top Header -->
 <div class="menu">
   <a href="index.html">Home</a>
@@ -16,12 +17,53 @@
   <a href="quiz.html">Quiz</a>
 </div>
 
+<hr>
+
 <h1>Early HTTP Versions</h1>
 
+<h2>Overview of Early HTTP</h2>
 
-<p>This page will discuss early http stuff</p>
+<p>
+HTTP was created as a way for web browsers and servers to communicate with each other. When the web was first developed, it was mainly used to share simple text documents between researchers and academics. Because of this, HTTP did not need to support complex features or large amounts of data at the time.
+</p>
 
-<!-- Table -->
+<p>
+HTTP works using a request and response system. When a user enters a website or clicks a link, the browser sends a request to a server asking for information. The server then responds by sending the requested data back to the browser. The browser then displays that information to the user. This process happens constantly while browsing the web.
+</p>
+
+<p>
+One important characteristic of HTTP is that it is stateless. This means that each request is handled separately and the server does not remember previous interactions. While this keeps the system simple, it also means extra tools are needed for things like user logins or sessions.
+</p>
+
+<hr>
+
+<h2>Early Versions of HTTP</h2>
+
+<p>
+The earliest version of HTTP was HTTP/0.9. This version was extremely simple and only supported one type of request, which was the GET request. It was designed only to retrieve basic HTML documents from a server.
+</p>
+
+<p>
+HTTP/0.9 did not include headers or status codes. Because of this, servers could not provide extra information about the content, and browsers had no way of knowing if a request was successful or failed. This made it very limited, especially as the web started to grow.
+</p>
+
+<p>
+To improve these limitations, HTTP/1.0 was introduced in 1996. This version added important features such as headers and status codes. Headers allowed additional information to be sent with requests and responses, such as the type of data being transferred. Status codes made it possible to understand whether a request was successful or if an error occurred.
+</p>
+
+<p>
+Although HTTP/1.0 improved functionality, it still had performance issues. It required a new connection to be opened for every request, which slowed down websites as they became more complex.
+</p>
+
+<p>
+In 1997, HTTP/1.1 was introduced to improve performance. One of its most important features was persistent connections. This allowed multiple requests to be sent over a single connection instead of opening a new one each time.
+</p>
+
+<p>
+HTTP/1.1 also introduced better caching and the ability to send data in smaller pieces. These improvements helped reduce delays and made websites load faster. Because of these advantages, HTTP/1.1 remained widely used for many years.
+</p>
+
+<hr>
 
 <h2>HTTP Overview Table</h2>
 
@@ -29,40 +71,40 @@
 <tr>
     <th>Version</th>
     <th>Year</th>
-    <th>Info</th>
+    <th>Description</th>
 </tr>
 
 <tr>
     <td>HTTP 0.9</td>
     <td>1991</td>
-    <td>Very basic simple requests</td>
+    <td>Very basic version that only supported GET requests and returned simple HTML text.</td>
 </tr>
 
 <tr>
     <td>HTTP 1.0</td>
     <td>1996</td>
-    <td> headers and status codes</td>
+    <td>Added headers and status codes, allowing better communication between browsers and servers.</td>
 </tr>
 
 <tr>
     <td>HTTP 1.1</td>
     <td>1997</td>
-    <td>Improved performance</td>
-</tr>
-
-<tr>
-    <td>HTTP 2</td>
-    <td>2015</td>
-    <td>Faster loading / multiple requests at once</td>
-</tr>
-
-<tr>
-    <td>HTTP 3</td>
-    <td>2022</td>
-    <td>Newer protocol for better speed etc....</td>
+    <td>Improved performance with persistent connections, caching, and better data handling.</td>
 </tr>
 
 </table>
+
+<hr>
+
+<h2>Summary</h2>
+
+<p>
+The early versions of HTTP show how the protocol evolved to meet the growing demands of the web. What started as a simple system for sharing text quickly needed to support more complex content like images and multimedia.
+</p>
+
+<p>
+Each version of HTTP improved on the one before it by adding new features and solving performance issues. These early improvements laid the foundation for the modern versions of HTTP used today.
+</p>
 
 <hr>
 
@@ -71,6 +113,6 @@
 This is a class project for IT 3203. 
 <a href="https://ksuweb.github.io/IT3203/">Course Website</a>
 </p>
-  
+
 </body>
 </html>
