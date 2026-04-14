@@ -41,3 +41,7 @@ form {
 h1 {
   text-align: center;
 }
+.quiz-container {
+  max-width: 700px;
+  margin: 40px auto;
+}
