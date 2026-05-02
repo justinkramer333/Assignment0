@@ -18,9 +18,107 @@
 
 <hr>
 
-<h1>Early HTTP Versions</h1>
+<h1>Modern HTTP Versions</h1>
 
-<p>This page will discuss modern HTTP stuff </p>
+<h2>Why HTTP Needed to Improve</h2>
+
+<p>
+As websites became larger and more complex, early HTTP versions started to show performance problems. Modern webpages often require many separate resources such as images, scripts, and other files. Each of these resources needs to be requested from a server.
+</p>
+
+<p>
+Opening and closing a new connection for every request caused delays and increased network traffic. This became even more noticeable on slower Wi-Fi connections and mobile devices. Because of this, HTTP needed major upgrades that focused on speed, efficiency, and flexibility.
+</p>
+
+<hr>
+
+<h2>HTTPS and Web Security</h2>
+
+<p>
+As the web became a place for sensitive services, security became much more important. People began using websites for banking, shopping, corporate communication, logins, and online payments. This meant that protecting user data became necessary.
+</p>
+
+<p>
+Early versions of HTTP sent data in plain text. This made it possible for attackers to intercept or modify information. HTTPS helped solve this problem by using encryption to secure data being sent between browsers and servers.
+</p>
+
+<p>
+Over time, major browsers began encouraging HTTPS, and it became the standard for most modern websites. HTTPS improved privacy, trust, and safety on the web.
+</p>
+
+<hr>
+
+<h2>HTTP/2</h2>
+
+<p>
+HTTP/2 was approved as a new standard in 2015. It was created to improve performance and fix major inefficiencies found in older HTTP versions. One major change was that HTTP/2 used a binary format instead of older text-based messages.
+</p>
+
+<p>
+This binary format allowed data to be processed faster and more efficiently. HTTP/2 also introduced multiplexing, which allowed multiple requests and responses to be sent at the same time over a single connection.
+</p>
+
+<p>
+Another important improvement was header compression. This reduced the amount of repeated data sent between the client and server. These changes helped reduce latency and improved page load times, especially for complex websites.
+</p>
+
+<hr>
+
+<h2>HTTP/3</h2>
+
+<p>
+HTTP/3 was rolled out in 2022 and is the latest major version discussed in my research. It is built on top of a transport protocol called QUIC. Unlike earlier versions of HTTP that relied on TCP, HTTP/3 uses UDP.
+</p>
+
+<p>
+This change helps HTTP/3 handle packet loss and network changes more efficiently. It also helps reduce latency and improve performance on unreliable or mobile networks.
+</p>
+
+<p>
+HTTP/3 is especially useful for modern internet use because many people browse the web on mobile devices and switch between networks throughout the day. This makes HTTP/3 better suited for mobile-heavy web usage and changing network conditions.
+</p>
+
+<hr>
+
+<h2>Modern HTTP Overview Table</h2>
+
+<table border="1">
+  <tr>
+    <th>Technology</th>
+    <th>Year</th>
+    <th>Main Improvement</th>
+  </tr>
+
+  <tr>
+    <td>HTTPS</td>
+    <td>Developed as web security became necessary</td>
+    <td>Uses encryption to protect data sent between browsers and servers.</td>
+  </tr>
+
+  <tr>
+    <td>HTTP/2</td>
+    <td>2015</td>
+    <td>Improved speed with binary format, multiplexing, and header compression.</td>
+  </tr>
+
+  <tr>
+    <td>HTTP/3</td>
+    <td>2022</td>
+    <td>Uses QUIC and UDP to improve performance on unreliable and mobile networks.</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Summary</h2>
+
+<p>
+Modern HTTP versions were created because the web continued to grow and became more demanding. Websites needed to load faster, handle more resources, and protect user information.
+</p>
+
+<p>
+HTTPS improved security, HTTP/2 improved speed and efficiency, and HTTP/3 improved performance for modern mobile and wireless network conditions. Together, these changes show how HTTP has continued to evolve with the needs of the web.
+</p>
 
 <hr>
 
